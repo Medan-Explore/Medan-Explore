@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Explore Medan | Wisata Kota Medan</title>
+    <title>Gallery - Medan Explore</title>
     <meta
       name="description"
-      content="Informasi wisata Medan Explore: destinasi sejarah, alam, rekreasi, dan kuliner di Kota Medan dan sekitarnya."
+      content="Galeri foto Medan Explore: wisata sejarah, alam, dan rekreasi di Kota Medan."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,8 +16,7 @@
     />
     <link href="./output.css" rel="stylesheet" />
   </head>
-
-  <body class="bg-amber-50 text-stone-900 antialiased">
+  <body class="bg-[#FDFBF7] text-gray-800 font-sans">
     <!-- NAVBAR -->
     <header
       id="navbar"
@@ -62,7 +61,8 @@
           <li>
             <a
               href="gallery.html"
-              class="block py-3 md:py-1 md:underline-offset-8 md:hover:underline md:decoration-2 md:decoration-yellow-600"
+              aria-current="page"
+              class="block py-3 md:py-1 md:underline md:underline-offset-8 md:decoration-2 md:decoration-yellow-600"
               >Gallery</a
             >
           </li>
@@ -97,3 +97,138 @@
         </button>
       </nav>
     </header>
+
+    <!-- HEADER SECTION (pt-28 supaya tidak tertutup navbar fixed) -->
+    <section class="bg-[#0b2416] text-white pt-28 pb-12 px-6 text-center">
+      <h1 class="text-4xl font-bold mb-3 text-[#f2c94c]">
+        Galeri Foto Medan
+      </h1>
+      <p class="text-gray-300 max-w-2xl mx-auto">
+        Lihat keindahan sejarah, alam, dan tempat rekreasi Kota Medan lewat
+        koleksi foto pilihan.
+      </p>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="max-w-7xl mx-auto px-6 pt-8 pb-4">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-4 bg-white p-4 rounded-xl shadow-sm border"
+      >
+        <!-- Search Input -->
+        <div class="w-full md:w-1/3">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Cari foto..."
+            aria-label="Cari foto"
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1b3e2b]"
+          />
+        </div>
+        <!-- Filter Buttons -->
+        <div
+          id="filterBar"
+          class="flex flex-wrap gap-2 w-full md:w-auto justify-center"
+        >
+          <button
+            type="button"
+            data-category="All"
+            class="filter-btn bg-[#1b3e2b] text-white px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Semua
+          </button>
+          <button
+            type="button"
+            data-category="Wisata Sejarah"
+            class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Wisata Sejarah
+          </button>
+          <button
+            type="button"
+            data-category="Alam"
+            class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Alam
+          </button>
+          <button
+            type="button"
+            data-category="Rekreasi"
+            class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Rekreasi
+          </button>
+        </div>
+      </div>
+      <p id="count" class="mt-4 text-sm text-gray-500"></p>
+    </section>
+
+    <!-- GALLERY GRID (diisi oleh js/gallery.js) -->
+    <section class="max-w-7xl mx-auto px-6 py-8">
+      <div
+        id="galleryGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+      ></div>
+      <p id="empty" class="hidden py-16 text-center text-gray-500">
+        Tidak ada foto yang cocok dengan pencarianmu.
+      </p>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Pratinjau foto"
+    >
+      <button
+        id="lb-close"
+        type="button"
+        class="absolute top-4 right-4 grid size-11 place-items-center text-3xl text-white hover:text-[#f2c94c]"
+        aria-label="Tutup"
+      >
+        &times;
+      </button>
+      <button
+        id="lb-prev"
+        type="button"
+        class="absolute top-1/2 left-2 grid size-12 -translate-y-1/2 place-items-center text-4xl text-white hover:text-[#f2c94c] md:left-6"
+        aria-label="Foto sebelumnya"
+      >
+        &#8249;
+      </button>
+      <button
+        id="lb-next"
+        type="button"
+        class="absolute top-1/2 right-2 grid size-12 -translate-y-1/2 place-items-center text-4xl text-white hover:text-[#f2c94c] md:right-6"
+        aria-label="Foto berikutnya"
+      >
+        &#8250;
+      </button>
+      <figure class="max-h-full w-full max-w-4xl text-center">
+        <div id="lb-media" class="flex justify-center"></div>
+        <figcaption class="mt-5 text-white">
+          <h2 id="lb-title" class="text-2xl font-bold"></h2>
+          <p id="lb-meta" class="mt-1 text-sm text-[#f2c94c]"></p>
+          <p id="lb-desc" class="mx-auto mt-2 max-w-2xl text-gray-300"></p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="dark-zone bg-green-950 text-amber-50/85">
+      <div class="pucuk rotate-180"></div>
+      <div
+        class="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-10"
+      >
+        <p class="font-display text-xl font-bold text-yellow-500">
+          Medan Explore
+        </p>
+        <p class="text-sm">© 2026 Medan Explore</p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/gallery.js"></script>
+  </body>
+</html>
