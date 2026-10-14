@@ -1,24 +1,10 @@
-// ====== DATA GALERI ======
-// Untuk memakai foto sendiri, ganti "src" dengan path file, misalnya
-// "./images/gallery/istana-maimun.jpg". Jika foto gagal dimuat, kartu
-// menampilkan blok hijau berisi judul foto.
-const photos = [
-  { src: "https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=800", title: "Istana Maimun", category: "Wisata Sejarah", location: "Jl. Sultan Ma'moun Al Rasyid, Medan", desc: "Istana peninggalan Kesultanan Deli dengan paduan arsitektur Melayu, Islam, dan Eropa." },
-  { src: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800", title: "Masjid Raya Al-Mashun", category: "Wisata Sejarah", location: "Jl. Mahkamah, Medan", desc: "Masjid bersejarah khas Kesultanan Deli berpola segi delapan dengan kubah megah." },
-  { src: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800", title: "Tjong A Fie Mansion", category: "Wisata Sejarah", location: "Jl. Ahmad Yani, Kesawan, Medan", desc: "Kediaman bersejarah dengan arsitektur perpaduan Tionghoa, Eropa, dan Melayu." },
-  { src: "https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=800", title: "Gereja Annai Velangkanni", category: "Wisata Sejarah", location: "Taman Sakura Indah, Medan", desc: "Gereja Katolik unik dengan arsitektur menyerupai kuil bertingkat khas India Tamil." },
-  { src: "https://images.unsplash.com/photo-1448375240586-882707db888b?w=800", title: "Taman Cadika Pramuka", category: "Alam", location: "Jl. Karya Wisata, Medan Johor", desc: "Ruang terbuka hijau dengan danau buatan, area piknik, dan fasilitas olahraga." },
-  { src: "https://images.unsplash.com/photo-1511497584788-8767611136f6?w=800", title: "Taman Hutan Kota Mabar", category: "Alam", location: "Mabar, Medan Deli", desc: "Kawasan hijau rindang yang cocok untuk olahraga pagi dan bersantai." },
-  { src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800", title: "Danau Siombak", category: "Alam", location: "Paya Pasir, Medan Marelan", desc: "Danau buatan di pesisir Medan dengan panorama matahari terbenam." },
-  { src: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800", title: "Rahmat Wildlife Museum", category: "Rekreasi", location: "Jl. S. Parman, Medan", desc: "Museum satwa dengan koleksi diorama beragam." },
-  { src: "https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=800", title: "Medan Zoo", category: "Rekreasi", location: "Simalingkar B, Medan Tuntungan", desc: "Taman satwa edukatif keluarga dengan koleksi fauna khas Sumatera." },
-  { src: "https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=800", title: "Wonders Water World", category: "Rekreasi", location: "CBD Polonia, Medan", desc: "Taman bermain air dengan seluncuran dan kolam gelombang." }
-];
+let photos = [];
 
 const badgeStyles = {
   "Wisata Sejarah": "bg-amber-100 text-amber-800",
-  Alam: "bg-emerald-100 text-emerald-800",
-  Rekreasi: "bg-blue-100 text-blue-800"
+  "Wisata Alam": "bg-emerald-100 text-emerald-800",
+  Rekreasi: "bg-blue-100 text-blue-800",
+  Kuliner: "bg-orange-100 text-orange-800"
 };
 
 const grid = document.getElementById("galleryGrid");
@@ -47,6 +33,7 @@ function placeholder(photo, big) {
 }
 
 function imageEl(photo, big) {
+  if (!photo.src) return placeholder(photo, big);
   const img = document.createElement("img");
   img.src = photo.src;
   img.alt = photo.title;
@@ -63,7 +50,7 @@ function applyFilters() {
   visible = photos.filter((p) => {
     const matchesSearch =
       p.title.toLowerCase().includes(term) ||
-      p.location.toLowerCase().includes(term);
+      p.desc.toLowerCase().includes(term);
     const matchesCategory =
       currentCategory === "All" || p.category === currentCategory;
     return matchesSearch && matchesCategory;
@@ -90,21 +77,15 @@ function renderGrid() {
     const body = document.createElement("div");
     body.className = "p-5";
 
-    const badge = document.createElement("span");
-    badge.className =
-      "mb-2 inline-block rounded-full px-2.5 py-1 text-xs font-semibold " +
-      (badgeStyles[photo.category] || "bg-gray-100 text-gray-800");
-    badge.textContent = photo.category;
-
     const title = document.createElement("h3");
     title.className = "mb-1 text-xl font-bold text-gray-900";
     title.textContent = photo.title;
 
     const loc = document.createElement("p");
     loc.className = "text-xs text-gray-500";
-    loc.textContent = "📍 " + photo.location;
+    loc.textContent = "Sumber gambar: " + (photo.source || "Tidak diketahui");
 
-    body.append(badge, title, loc);
+    body.append(title, loc);
     card.append(frame, body);
     card.addEventListener("click", () => openLightbox(i));
     grid.appendChild(card);
@@ -137,7 +118,7 @@ function showPhoto() {
   lbMedia.innerHTML = "";
   lbMedia.appendChild(imageEl(photo, true));
   lbTitle.textContent = photo.title;
-  lbMeta.textContent = photo.category + " · " + photo.location;
+  lbMeta.textContent = "Sumber gambar: " + (photo.source || "Tidak diketahui");
   lbDesc.textContent = photo.desc;
 }
 
@@ -177,4 +158,20 @@ document.addEventListener("keydown", (e) => {
 });
 
 setActiveButton("All");
-applyFilters();
+loadData()
+  .then((data) => {
+    photos = data.destinations.map((d) => ({
+      src: d.image,
+      title: d.name,
+      category: categoryName(data, d.category_id),
+      source: d.image_source,
+      desc: d.description,
+    }));
+    applyFilters();
+  })
+  .catch((err) => {
+    console.error(err);
+    countEl.textContent = "";
+    emptyEl.textContent = "Data galeri gagal dimuat.";
+    emptyEl.classList.remove("hidden");
+  });

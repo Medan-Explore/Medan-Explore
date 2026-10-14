@@ -1,11 +1,20 @@
-<!doctype html> //test commit
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Destinasi Wisata - Medan Explore</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="description"
+      content="Daftar destinasi wisata Medan Explore: wisata sejarah, alam, dan rekreasi di Kota Medan."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Figtree:wght@400;500;600&family=Noto+Naskh+Arabic&family=Noto+Sans+Batak&family=Noto+Sans+Tamil&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./output.css" rel="stylesheet" />
   </head>
   <body class="bg-[#FDFBF7] text-gray-800 font-sans">
     <!-- NAVBAR -->
@@ -89,7 +98,7 @@
     </header>
 
     <!-- HEADER SECTION -->
-    <section class="bg-[#0b2416] text-white py-12 px-6 text-center">
+    <section class="bg-[#0b2416] text-white pt-28 pb-12 px-6 text-center">
       <h1 class="text-4xl font-bold mb-3 text-[#f2c94c]">
         Jelajahi Destinasi Wisata Medan
       </h1>
@@ -128,10 +137,10 @@
             Wisata Sejarah
           </button>
           <button
-            onclick="filterCategory('Alam')"
+            onclick="filterCategory('Wisata Alam')"
             class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
           >
-            Alam
+            Wisata Alam
           </button>
           <button
             onclick="filterCategory('Rekreasi')"
@@ -143,338 +152,15 @@
       </div>
     </section>
 
-    <!-- DESTINATION GRID (MINIMAL 10 CARDS) -->
+    <!-- DESTINATION GRID -->
     <section class="max-w-7xl mx-auto px-6 py-8">
       <div
         id="destinationGrid"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-      >
-        <!-- Card 1 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Wisata Sejarah"
-          data-title="Istana Maimun"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1596402184320-417e7178b2cd?w=600"
-            alt="Istana Maimun"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Wisata Sejarah</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">Istana Maimun</h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Jl. Sultan Ma'moun Al Rasyid, Medan
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Istana peninggalan Kesultanan Deli yang megah dengan paduan
-              arsitektur Melayu, Islam, dan Eropa.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Wisata Sejarah"
-          data-title="Masjid Raya Al-Mashun"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600"
-            alt="Masjid Raya"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Wisata Sejarah</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Masjid Raya Al-Mashun
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">📍 Jl. Mahkamah, Medan</p>
-            <p class="text-gray-600 text-sm mb-4">
-              Masjid bersejarah ikonik khas Kesultanan Deli berpola segi delapan
-              dengan kubah megah.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Wisata Sejarah"
-          data-title="Tjong A Fie Mansion"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600"
-            alt="Tjong A Fie"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Wisata Sejarah</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Tjong A Fie Mansion
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Jl. Ahmad Yani, Kesawan, Medan
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Kediaman bersejarah tokoh pahlawan Medan berarsitektur perpaduan
-              Tionghoa, Eropa, dan Melayu.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Alam"
-          data-title="Taman Cadika Pramuka"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600"
-            alt="Taman Cadika"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Alam</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Taman Cadika Pramuka
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Jl. Karya Wisata, Medan Johor
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Ruang terbuka hijau asri dengan danau buatan, tempat piknik, dan
-              fasilitas olahraga outdoor.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Alam"
-          data-title="Taman Hutan Kota Mabar"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1511497584788-8767611136f6?w=600"
-            alt="Hutan Kota"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Alam</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Taman Hutan Kota Mabar
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">📍 Mabar, Medan Deli</p>
-            <p class="text-gray-600 text-sm mb-4">
-              Kawasan hijau rindang paru-paru kota yang cocok untuk olahraga
-              pagi dan bersantai.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 6 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Alam"
-          data-title="Danau Siombak"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600"
-            alt="Danau Siombak"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Alam</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">Danau Siombak</h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Paya Pasir, Medan Marelan
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Danau buatan seluas 40 hektar di pesisir Medan dengan panorama
-              matahari terbenam yang indah.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 7 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Rekreasi"
-          data-title="Rahmat International Wildlife Museum"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600"
-            alt="Museum Rahmat"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Rekreasi</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Rahmat Wildlife Museum
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">📍 Jl. S. Parman, Medan</p>
-            <p class="text-gray-600 text-sm mb-4">
-              Museum konservasi satwa internasional pertama di Asia Tenggara
-              dengan koleksi diorama beragam.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 8 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Rekreasi"
-          data-title="Medan Zoo"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1534567153574-2b12153a87f0?w=600"
-            alt="Medan Zoo"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Rekreasi</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">Medan Zoo</h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Simalingkar B, Medan Tuntungan
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Taman satwa edukatif keluarga dengan koleksi fauna khas Sumatera
-              seperti Harimau Sumatera.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 9 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Rekreasi"
-          data-title="Wonders Water World"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1582650625119-3a31f8fa2699?w=600"
-            alt="Wonders Water World"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Rekreasi</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Wonders Water World
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">📍 CBD Polonia, Medan</p>
-            <p class="text-gray-600 text-sm mb-4">
-              Taman bermain air modern dengan wahana seluncuran internasional
-              dan kolam gelombang.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-
-        <!-- Card 10 -->
-        <div
-          class="dest-card bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300"
-          data-category="Wisata Sejarah"
-          data-title="Gereja Annai Velangkanni"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?w=600"
-            alt="Gereja Annai Velangkanni"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-5">
-            <span
-              class="inline-block bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2"
-              >Wisata Sejarah</span
-            >
-            <h3 class="text-xl font-bold text-gray-900 mb-1">
-              Gereja Annai Velangkanni
-            </h3>
-            <p class="text-xs text-gray-500 mb-3">
-              📍 Taman Sakura Indah, Medan
-            </p>
-            <p class="text-gray-600 text-sm mb-4">
-              Gereja Katolik unik dengan arsitektur menyerupai kuil bertingkat
-              khas India Tamil.
-            </p>
-            <button
-              class="w-full bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition"
-            >
-              Lihat Detail
-            </button>
-          </div>
-        </div>
-      </div>
+      ></div>
+      <p id="destEmpty" class="hidden py-16 text-center text-gray-500">
+        Tidak ada destinasi yang cocok dengan pencarianmu.
+      </p>
     </section>
 
     <!-- FOOTER -->
@@ -491,54 +177,67 @@
     </footer>
 
     <script src="./js/main.js"></script>
-  </body>
-</html>
 
-    <!-- JAVASCRIPT: LOGIKA FILTER & SEARCH -->
+    <!-- FILTER & SEARCH -->
     <script>
       const searchInput = document.getElementById("searchInput");
-      const cards = document.querySelectorAll(".dest-card");
+      const grid = document.getElementById("destinationGrid");
+      const emptyEl = document.getElementById("destEmpty");
       const filterBtns = document.querySelectorAll(".filter-btn");
 
       let currentCategory = "All";
+      let appData = null;
+
+      const renderDestCard = (d) => `
+        <div class="dest-card flex h-full flex-col bg-white rounded-2xl overflow-hidden shadow-md border hover:shadow-xl hover:-translate-y-1 transition duration-300">
+          ${imgTag(d, "w-full h-48 object-cover")}
+          <div class="flex flex-1 flex-col p-5">
+            <span class="inline-block w-fit bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-full font-semibold mb-2">${escapeHtml(categoryName(appData, d.category_id))}</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-1">${escapeHtml(d.name)}</h3>
+            <p class="text-xs text-gray-500 mb-3">📍 ${escapeHtml(d.address)}</p>
+            <p class="text-gray-600 text-sm mb-4 flex-1">${escapeHtml(d.description)}</p>
+            <button type="button" data-detail-id="${d.id}" class="w-full cursor-pointer bg-[#1b3e2b] hover:bg-[#122b1e] text-white py-2 rounded-lg text-sm font-medium transition">Lihat Detail</button>
+          </div>
+        </div>`;
 
       function filterCategory(category) {
         currentCategory = category;
         filterBtns.forEach((btn) => {
-          if (
-            btn.textContent.trim() === category ||
-            (category === "All" && btn.textContent.trim() === "Semua")
-          ) {
-            btn.classList.add("bg-[#1b3e2b]", "text-white");
-            btn.classList.remove("bg-gray-100", "text-gray-700");
-          } else {
-            btn.classList.remove("bg-[#1b3e2b]", "text-white");
-            btn.classList.add("bg-gray-100", "text-gray-700");
-          }
+          const label = btn.textContent.trim();
+          const active = label === category || (category === "All" && label === "Semua");
+          btn.classList.toggle("bg-[#1b3e2b]", active);
+          btn.classList.toggle("text-white", active);
+          btn.classList.toggle("bg-gray-100", !active);
+          btn.classList.toggle("text-gray-700", !active);
         });
         applyFilters();
       }
 
+      function applyFilters() {
+        if (!appData) return;
+        const term = searchInput.value.trim().toLowerCase();
+        const matches = appData.destinations.filter((d) => {
+          if (d.category_id === 4) return false; // Kuliner punya halaman sendiri
+          const matchesSearch = (d.name + " " + d.address).toLowerCase().includes(term);
+          const matchesCategory = currentCategory === "All" || categoryName(appData, d.category_id) === currentCategory;
+          return matchesSearch && matchesCategory;
+        });
+        grid.innerHTML = matches.map(renderDestCard).join("");
+        emptyEl.classList.toggle("hidden", matches.length > 0);
+      }
+
       searchInput.addEventListener("input", applyFilters);
 
-      function applyFilters() {
-        const searchTerm = searchInput.value.toLowerCase();
-
-        cards.forEach((card) => {
-          const title = card.getAttribute("data-title").toLowerCase();
-          const category = card.getAttribute("data-category");
-
-          const matchesSearch = title.includes(searchTerm);
-          const matchesCategory =
-            currentCategory === "All" || category === currentCategory;
-
-          if (matchesSearch && matchesCategory) {
-            card.classList.remove("hidden");
-          } else {
-            card.classList.add("hidden");
-          }
+      loadData()
+        .then((data) => {
+          appData = data;
+          applyFilters();
+        })
+        .catch((err) => {
+          console.error(err);
+          emptyEl.textContent = "Data destinasi gagal dimuat.";
+          emptyEl.classList.remove("hidden");
         });
-      }
     </script>
   </body>
 </html>

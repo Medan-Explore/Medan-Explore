@@ -61,8 +61,7 @@
           <li>
             <a
               href="gallery.html"
-              aria-current="page"
-              class="block py-3 md:py-1 md:underline md:underline-offset-8 md:decoration-2 md:decoration-yellow-600"
+              class="block py-3 md:py-1 md:underline-offset-8 md:hover:underline md:decoration-2 md:decoration-yellow-600"
               >Gallery</a
             >
           </li>
@@ -98,18 +97,18 @@
       </nav>
     </header>
 
-    <!-- HEADER SECTION (pt-28 supaya tidak tertutup navbar fixed) -->
+    <!-- HEADER -->
     <section class="bg-[#0b2416] text-white pt-28 pb-12 px-6 text-center">
       <h1 class="text-4xl font-bold mb-3 text-[#f2c94c]">
         Galeri Foto Medan
       </h1>
       <p class="text-gray-300 max-w-2xl mx-auto">
-        Lihat keindahan sejarah, alam, dan tempat rekreasi Kota Medan lewat
+        Lihat keindahan sejarah, alam, rekreasi, dan kuliner Kota Medan lewat
         koleksi foto pilihan.
       </p>
     </section>
 
-    <!-- FILTER & SEARCH BAR -->
+    <!-- FILTER & SEARCH -->
     <section class="max-w-7xl mx-auto px-6 pt-8 pb-4">
       <div
         class="flex flex-col md:flex-row justify-between items-center gap-4 bg-white p-4 rounded-xl shadow-sm border"
@@ -145,10 +144,10 @@
           </button>
           <button
             type="button"
-            data-category="Alam"
+            data-category="Wisata Alam"
             class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
           >
-            Alam
+            Wisata Alam
           </button>
           <button
             type="button"
@@ -157,12 +156,19 @@
           >
             Rekreasi
           </button>
+          <button
+            type="button"
+            data-category="Kuliner"
+            class="filter-btn bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium transition"
+          >
+            Kuliner
+          </button>
         </div>
       </div>
       <p id="count" class="mt-4 text-sm text-gray-500"></p>
     </section>
 
-    <!-- GALLERY GRID (diisi oleh js/gallery.js) -->
+    <!-- GALLERY GRID -->
     <section class="max-w-7xl mx-auto px-6 py-8">
       <div
         id="galleryGrid"
