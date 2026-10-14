@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Destinasi Wisata - Medan Explore</title>
+    <link rel="icon" type="image/png" href="./images/logo-kita.png" />
     <meta
       name="description"
       content="Daftar destinasi wisata Medan Explore: wisata sejarah, alam, dan rekreasi di Kota Medan."
@@ -204,7 +205,8 @@
         currentCategory = category;
         filterBtns.forEach((btn) => {
           const label = btn.textContent.trim();
-          const active = label === category || (category === "All" && label === "Semua");
+          const active =
+            label === category || (category === "All" && label === "Semua");
           btn.classList.toggle("bg-[#1b3e2b]", active);
           btn.classList.toggle("text-white", active);
           btn.classList.toggle("bg-gray-100", !active);
@@ -218,8 +220,12 @@
         const term = searchInput.value.trim().toLowerCase();
         const matches = appData.destinations.filter((d) => {
           if (d.category_id === 4) return false; // Kuliner punya halaman sendiri
-          const matchesSearch = (d.name + " " + d.address).toLowerCase().includes(term);
-          const matchesCategory = currentCategory === "All" || categoryName(appData, d.category_id) === currentCategory;
+          const matchesSearch = (d.name + " " + d.address)
+            .toLowerCase()
+            .includes(term);
+          const matchesCategory =
+            currentCategory === "All" ||
+            categoryName(appData, d.category_id) === currentCategory;
           return matchesSearch && matchesCategory;
         });
         grid.innerHTML = matches.map(renderDestCard).join("");
