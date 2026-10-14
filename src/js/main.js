@@ -19,17 +19,6 @@ const imageSrc = (d) => d.image;
 const imgTag = (d, cls = "", alt = d.name) =>
   `<img src="${escapeHtml(imageSrc(d))}" alt="${escapeHtml(alt)}" loading="lazy" data-name="${escapeHtml(d.name)}" class="${cls}" />`;
 
-document.addEventListener(
-  "error",
-  (e) => {
-    const img = e.target;
-    if (img.tagName !== "IMG" || img.dataset.fallback) return;
-    img.dataset.fallback = "1";
-    img.src = "./images/fallback.webp"; 
-  },
-  true,
-);
-
 const hoursText = (v) => v || "Belum tersedia";
 
 const hoursSummary = (d) =>
